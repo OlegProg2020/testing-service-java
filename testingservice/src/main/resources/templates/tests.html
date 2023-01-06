@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testing-service</title>
+</head>
+<body>
+    <div th:each="test : ${tests}">
+        <a th:text="${test.getTitle()}"></a>
+    </div>
+</body>
+</html>
