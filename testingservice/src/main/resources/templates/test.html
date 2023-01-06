@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testing-service</title>
+</head>
+<body>
+  <div>
+      <h2 th:text="${test.getTitle()}"></h2>
+      <div th:each="question : ${test.getQuestions()}">
+          <p th:text="${question.getNumber()}">№ </p>
+          <p th:text="${question.getContent()}"></p>
+      </div>
+  </div>
+</body>
+</html>
