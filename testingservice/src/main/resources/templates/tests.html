@@ -6,7 +6,7 @@
 </head>
 <body>
     <div th:each="test : ${tests}">
-        <a th:text="${test.getTitle()}"></a>
+        <a th:text="${test.getTitle()}" th:href="@{http://localhost:8080/tests/{id}(id = ${test.getId()})}"></a>
     </div>
 </body>
 </html>

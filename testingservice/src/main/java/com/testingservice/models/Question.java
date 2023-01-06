@@ -39,4 +39,5 @@ public class Question implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn
     private List<Answer> answers = new ArrayList<>();
+
 }
