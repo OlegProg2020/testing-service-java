@@ -27,13 +27,6 @@ public class TestController {
         this.testRepository = testRepository;
     }
 
-    /*
-    @ModelAttribute(name = "tests")
-    public Iterable<Test> addTestsToModel() {
-        return testRepository.findAll();
-    }
-    */
-
     @GetMapping
     public String showTestsView(Model model,
                                 @RequestParam(name = "offset", required = false, defaultValue = "0") Integer offset,
