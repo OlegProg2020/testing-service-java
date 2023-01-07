@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testing-service</title>
+</head>
+<body>
+    <h1>Registration in testing-service</h1>
+
+    <form method="POST" th:action="@{/register}">
+        <label for="username">username: </label>
+        <input type="text" name="username" id="username"><br/>
+
+        <label for="password">password: </label>
+        <input type="password" name="password" id="password"><br/>
+
+        <label for="confirm">confirm password: </label>
+        <input type="password" name="confirm" id="confirm"><br/>
+
+        <input type="submit" value="register">
+    </form>
+</body>
+</html>
