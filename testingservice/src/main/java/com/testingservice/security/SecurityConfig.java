@@ -43,7 +43,9 @@ public class SecurityConfig {
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/login");
+                .loginPage("/login")
+                .and()
+                .logout();
 
         return httpSecurity.build();
     }

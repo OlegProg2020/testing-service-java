@@ -12,13 +12,13 @@
   </p>
 
   <form method="POST" th:action="@{/login}">
-    <label for="username">username: </label>
-    <input type="text" name="username" id="username">
+    <label for="username">Username: </label>
+    <input type="text" name="username" id="username" required minlength="4" maxlength="100">
 
-    <label for="password">password: </label>
-    <input type="text" name="password" id="password">
+    <label for="password">Password: </label>
+    <input type="text" name="password" id="password" required minlength="4" maxlength="100">
 
-    <input type="submit" value="Login">
+    <input type="submit" value="Log in">
   </form>
 </body>
 </html>
