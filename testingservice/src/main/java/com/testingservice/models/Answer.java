@@ -25,8 +25,6 @@ public class Answer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private Integer number;
-
+    // todo создать ограничения как в Test и Answer
     private String content;
 }

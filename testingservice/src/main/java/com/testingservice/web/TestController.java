@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -55,4 +54,12 @@ public class TestController {
         return "test";
     }
 
+    @GetMapping(path = "/create")
+    public String showTestCreatorView(Model model) {
+        Test test = new Test();
+        model.addAttribute("test", test);
+        return "testCreator";
+    }
+
+    // todo создать метод POST для создания нового теста
 }

@@ -14,11 +14,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @NoArgsConstructor
 public class RegistrationForm {
     @Size(min = 4, max = 100, message = "username must contain from 4 to 100 characters")
-    @NotBlank
+    @NotBlank(message = "username can't be blank")
     @UniqueUsername(message = "this username is already in use")
     private String username;
 
-    @NotBlank
+    @NotBlank(message = "password can't be blank")
     @Size(min = 4, max = 100, message = "password must contain from 4 to 100 characters")
     private String password;
 
