@@ -37,7 +37,10 @@ public class Question implements Serializable {
     private String content;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name = "question_id")
     private List<Answer> answers = new ArrayList<>();
 
+    private String correctAnswer;
+
+    private Integer score;
 }

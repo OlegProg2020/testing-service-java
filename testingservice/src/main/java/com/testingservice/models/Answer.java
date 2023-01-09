@@ -10,8 +10,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
-import jakarta.validation.constraints.PositiveOrZero;
-
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -31,7 +29,4 @@ public class Answer implements Serializable {
     private Integer number;
 
     private String content;
-
-    @PositiveOrZero
-    private Integer points;
 }

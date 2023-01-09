@@ -14,8 +14,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.JoinColumn;
 
-import jakarta.validation.constraints.NotBlank;
-
 import java.io.Serial;
 import java.util.List;
 import java.io.Serializable;
@@ -39,14 +37,13 @@ public class User implements Serializable, UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
     @Column(unique = true)
     private String username;
 
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn(name = "user_id")
     private List<Test> tests = new ArrayList<>();
 
     public User(String username, String password) {
@@ -61,8 +58,6 @@ public class User implements Serializable, UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-
-
         return true;
     }
 
