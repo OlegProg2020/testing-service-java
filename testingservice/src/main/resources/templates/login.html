@@ -1,24 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>testing-service</title>
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/main.css}" href="../static/css/main.css"/>
 </head>
-<body>
-  <h2>Login</h2>
+<body class="background-gradient">
+<div class="container">
+    <div class="login-wrapper">
+        <form method="POST" th:action="@{/login}">
+            <h2 class="login-form-title">Login</h2>
 
-  <p>new here? click
-    <a th:href="@{/register}">here</a> to register.
-  </p>
+            <div class="wrap-input">
+                <label class="label" for="username">Username: </label>
+                <input class="input" type="text" name="username" id="username" required minlength="4" maxlength="100" placeholder="Type your username...">
+            </div>
 
-  <form method="POST" th:action="@{/login}">
-    <label for="username">Username: </label>
-    <input type="text" name="username" id="username" required minlength="4" maxlength="100">
+            <div class="wrap-input">
+                <label class="label" for="password">Password: </label>
+                <input class="input" type="text" name="password" id="password" required minlength="4" maxlength="100" placeholder="Type your password...">
+            </div>
 
-    <label for="password">Password: </label>
-    <input type="text" name="password" id="password" required minlength="4" maxlength="100">
+            <div class="wrap-input">
+            <input type="submit" value="Log in" class="button login-button">
+            </div>
 
-    <input type="submit" value="Log in">
-  </form>
+            <div class="wrap-input register-link">
+                <p>New here? click
+                    <a th:href="@{/register}">here</a> to register.
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
