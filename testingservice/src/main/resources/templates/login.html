@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>testing-service</title>
-    <link rel="stylesheet" type="text/css" th:href="@{static/css/main.css}" href="../static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../static/css/main.css"/>
 </head>
 <body class="background-gradient">
 <div class="container">
@@ -18,7 +18,7 @@
 
             <div class="wrap-input">
                 <label class="label" for="password">Password: </label>
-                <input class="input" type="text" name="password" id="password" required minlength="4" maxlength="100" placeholder="Type your password...">
+                <input class="input" type="password" name="password" id="password" required minlength="4" maxlength="100" placeholder="Type your password...">
             </div>
 
             <div class="wrap-input">
@@ -26,7 +26,7 @@
             </div>
 
             <div class="wrap-input register-link">
-                <p>New here? click
+                <p>New here? Click
                     <a th:href="@{/register}">here</a> to register.
                 </p>
             </div>
