@@ -1,5 +1,6 @@
 package com.testingservice.web;
 
+import com.testingservice.models.Answer;
 import com.testingservice.models.Question;
 import com.testingservice.models.Test;
 import com.testingservice.data.TestRepository;
@@ -58,14 +59,10 @@ public class TestController {
 
     @GetMapping(path = "/create")
     public String showTestCreatorView(Model model) {
+        Answer test = new Answer();
+        // todo Create заменить на Editor
 
-        // todo переделать js и Create заменить на Editor
-
-        Test test = new Test();
-        Question question = new Question();
-        question.setNumber(1);
-        test.setQuestions(List.of(question));
-        model.addAttribute("test", test);
+        model.addAttribute("test", new Test());
         return "testCreator";
     }
 

@@ -23,17 +23,23 @@
             <input type="number" th:field="*{questions[__${questionStat.index}__].score}" required>
         </label>
 
-        <div th:each="answer, answerStat : ${test.questions[__${questionStat.index}__].answers}">
+        <div th:each="answer, answerStat : ${test.questions[__${questionStat.index}__].answers}" class="answer">
+            <p>Mark the correct answers:</p>
             <label>Answer content:
-                <textarea th:field="*{questions[__${questionStat.index}__].answers[__${answerStat.index}__].content}"></textarea>
+                <input type="checkbox" value="true"
+                       th:field="*{questions[__${questionStat.index}__].answers[__${answerStat.index}__].correct}">
+                <textarea
+                        th:field="*{questions[__${questionStat.index}__].answers[__${answerStat.index}__].content}"></textarea>
             </label>
-            <label>Answer content:
-                <input type="text" th:field="*{questions[__${questionStat.index}__].answers[__${answerStat.index}__].correct}" required>
-            </label>
+        </div>
+
+        <div th:id="'answerButtons'+ ${questionStat.index}">
+            <input type="button" th:onclick="'addAnswer('+ ${questionStat.index} +')'" value="Add new answer">
+            <input type="button" th:onclick="'deleteLastAnswer('+ ${questionStat.index} +')'" value="Delete last answer">
         </div>
     </div>
 
-    <div>
+    <div id="questionButtons">
         <input type="button" onclick="addQuestion()" value="Add new question">
         <input type="button" onclick="deleteLastQuestion()" value="Delete last question">
     </div>
