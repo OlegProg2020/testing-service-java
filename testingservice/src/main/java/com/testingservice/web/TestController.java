@@ -1,18 +1,20 @@
 package com.testingservice.web;
 
+import com.testingservice.models.Question;
 import com.testingservice.models.Test;
 import com.testingservice.data.TestRepository;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -56,10 +58,25 @@ public class TestController {
 
     @GetMapping(path = "/create")
     public String showTestCreatorView(Model model) {
+
+        // todo переделать js и Create заменить на Editor
+
         Test test = new Test();
+        Question question = new Question();
+        question.setNumber(1);
+        test.setQuestions(List.of(question));
         model.addAttribute("test", test);
         return "testCreator";
     }
 
-    // todo создать метод POST для создания нового теста
+    @PostMapping(path = "/create")
+    public String createTest(@Valid Test test, Errors errors) {
+        if(errors.hasErrors()) {
+            return "testCreator";
+        }
+        else {
+            testRepository.save(test);
+            return "redirect:/";
+        }
+    }
 }

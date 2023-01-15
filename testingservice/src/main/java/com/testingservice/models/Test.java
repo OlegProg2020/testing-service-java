@@ -34,14 +34,16 @@ public class Test implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    // todo unique не возвращает Error, а пытается сохранить в БД (ошибку возвращает сама БД)
+    // можно убрать unique и отображать создателя теста на странице поиска
     @Column(unique = true)
-    @Size(min = 4, max = 100, message = "title must contain from 4 to 100 characters")
-    @NotBlank(message = "title can't be blank")
+    @Size(min = 4, max = 100, message = "Title must contain from 4 to 100 characters")
+    @NotBlank(message = "Title can't be blank")
     private String title;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "test_id")
-    @Size(min = 1, max = 300, message = "test must contain at least 1 question (max 300)")
+    @Size(min = 1, max = 300, message = "Test must contain at least 1 question (max 300)")
     private List<Question> questions = new ArrayList<>();
 
     public Test(String title) {

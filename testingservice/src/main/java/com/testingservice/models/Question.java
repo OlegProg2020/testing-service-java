@@ -25,7 +25,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @Data
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Entity
 @Table(name = "question")
 public class Question implements Serializable {
@@ -47,14 +47,10 @@ public class Question implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "question_id")
-    @Size(min = 2, max = 20, message = "question must contain at least 2 possible answers (max 20)")
+    @Size(min = 1, max = 20, message = "Question must contain at least 1 possible answer (max 20)")
     private List<Answer> answers = new ArrayList<>();
 
-    // todo correctAnswers сделать list или string с преобразованием проверки правильности ответа???
-    @NotBlank
-    @Size(min = 1, max = 100, message = "correct answers ")
-    private String correctAnswer;
-
-
+    @Min(value = 1, message = "Score must be greater than or equal to 1")
+    @Max(value = 1000, message = "Score must be less than or equal to 1000")
     private Integer score;
 }
